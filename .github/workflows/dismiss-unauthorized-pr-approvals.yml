@@ -3,13 +3,6 @@ name: Dismiss Unauthorized PR Approvals
 on:
   pull_request_review:
     types: [submitted]
-  schedule:
-    # Fallback poll: pull_request_review runs whose triggering_actor is an
-    # outside collaborator are held in `action_required` until a maintainer
-    # approves them — so the event-driven path never fires for the very
-    # reviewers we want to dismiss. The schedule path runs as
-    # github-actions[bot] and bypasses that gate.
-    - cron: '*/15 * * * *'
   workflow_dispatch:
 
 permissions:
